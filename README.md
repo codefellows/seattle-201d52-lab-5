@@ -6,7 +6,7 @@ Here is your starter code for your lab 5-a. Follow these directions while workin
 
 1. Fork this repo
 2. Clone this repo down to your local machine inside your `codefellows/201/labs` folder
-3. `cd` into this folder.
+3. `cd` into this folder on your local machine.
 4. Create a new branch for the problem you are working on `git checkout -b problem#`
 5. Solve your problem
 6. Follow the Add commit github process within your code
