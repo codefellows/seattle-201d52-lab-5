@@ -104,10 +104,20 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 
+  var product = multiply(multArr[0], multArr[1])[0];
+
+  //if there are more than 2 numbers, keep multiplying the current product and the next number starting at index 2
+  if (multArr.length > 2) {
+    for (var i = 2; i < multArr.length; i++) {
+      product = multiply(product, multArr[i])[0];
+    }
+  }
+  return [product, `The numbers ${multArr} have a product of ${product}.`];
+
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
