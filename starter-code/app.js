@@ -142,9 +142,23 @@ var testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
 
+  //multiply the first 2 numbers. this is returned if the array length is 2
+  var product = multiply(dynamicArray[0], dynamicArray[1])[0];
+
+  //if there's only one number just return it
+  if (dynamicArray.length < 2) {
+    return dynamicArray[0];
+  }
+  //if there are more than 2 numbers, keep multiplying the current product and the next number starting at index 2
+  else if (dynamicArray.length > 2) {
+    for (var i = 2; i < dynamicArray.length; i++) {
+      product = multiply(product, dynamicArray[i])[0];
+    }
+  }
+  return [product, `The numbers ${dynamicArray} have a product of ${product}.`];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
