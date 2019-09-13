@@ -35,7 +35,7 @@ function multiply(a, b) {
 }
 
 // Here is the test for multiply(); uncomment it to run it
-// multiply(5,9);
+// testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -52,15 +52,18 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) {
-  var sum2 = a + b + c;
-  var product2 = a * b * c;
-  var sumMessage = 'The sum of ' + a + ' and ' + b + ' and ' + c + ' is ' + sum2 + '.';
-  var productMessage = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product2 + '.';
-  return[sum2, product2, sumMessage, productMessage];
+  var sum2 = sum(a, b);
+  var multiSum = sum(sum2[0], c);
+
+  var product2 = multiply(a, b);
+  var multiProd = multiply(product2[0], c);
+  var sumMessage = `${a} and ${b} and ${c} sum to ${multiSum[0]}.`;
+  var productMessage = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multiProd[0] + '.';
+  return [multiSum[0], multiProd[0], sumMessage, productMessage];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-sumAndMultiply(4,7,5);
+// testSumAndMultiply(4, 7 ,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -75,15 +78,19 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 // Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+var testArray = [2, 3, 4];
 
-function sumArray(sumArr) { //eslint-disable-line
 
+function sumArray(testArray) {
+  var sumProb4 = sum(testArray[0] , testArray[1]);
+  var answerArray = sum(sumProb4[0], testArray[2]);
+  var sumMessage2 = `${testArray[0]},${testArray[1]},${testArray[2]} was passed in as an array of numbers, and ${answerArray[0]} is their sum.`;
+  return [answerArray[0], sumMessage2];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray();
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
