@@ -31,7 +31,7 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiply(a, b) {
     var product = a * b;
-    var string = `The product of ${a} and ${b} is 45.`;
+    var string = `The product of ${a} and ${b} is ${product}.`;
     var answer = [product, string];
     return answer;
 }
@@ -54,11 +54,25 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-
+    //1st sum three 
+    //2nd product of three
+    //3rd sting of 1nd
+    //4th string of 2nd 
+    // console.log(sum(c, sum(a, b)[0]));
+    // console.log(multiply(a, multiply(b, c)[0]));
+    var sum2 = sum(c, sum(a, b)[0]);
+    // console.log(sum2);
+    var product2 = multiply(a, multiply(b, c)[0]);
+    var oneString = `${a} and ${b} and ${c} sum to ${sum2[0]}.`;
+    // console.log(oneString);
+    var twoString = `The product of ${a} and ${b} and ${c} is ${product2[0]}.`;
+    // console.log(twoString);
+    var answer = [sum2[0], product2[0], oneString, twoString];
+    return answer;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4, 7, 5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
