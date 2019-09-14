@@ -99,7 +99,7 @@ console.log(sumFour, message);
 
 // Here is the test for sumArray(); uncomment it to run it
 
-testSumArray();
+// testSumArray();
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -114,12 +114,22 @@ IMPORTANT DETAIL: You may not use the arithmetic operator * in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiplyArray() function and see if the test passes.*/
 
 // Write your code here
-function multiplyArray(multArr) { //eslint-disable-line
+var multArr = [2,3,4]
 
+function multiplyArray(multArr) {
+
+  var prodNumbers = multiply(multArr[0],multArr[1]);
+  console.log (prodNumbers);
+  var prodAll = multiply(prodNumbers[0],multArr[2]);
+  console.log(prodAll)
+  var message = `The numbers ${multArr[0]},${multArr[1]},${multArr[2]} have a product of ${prodAll[0]}.`;
+  console.log(message)
+  return [prodAll[0],message];
+  console.log (prodAll,MessageEvent)
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
