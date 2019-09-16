@@ -8,9 +8,9 @@ Write a function called sum() that takes in two numbers as arguments and then re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
-function sum(a, b, c=0) { //eslint-disable-line
+function sum(a, b) { //eslint-disable-line
   var answer=[];
-  var sum = a + b + c;
+  var sum = a + b;
   var msg = `The sum of ${a} and ${b} is ${sum}.`;
   answer.push(sum, msg);
   return(answer);
@@ -29,9 +29,9 @@ Write a function called multiply() that takes in two numbers as arguments and re
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testMultiply() function and see if the test passes.*/
 
 // Write your code here
-function multiply(a, b, c=1) { //eslint-disable-line
+function multiply(a, b) { //eslint-disable-line
   var answer = [];
-  var product = a * b * c;
+  var product = a * b;
   var msg = `The product of ${a} and ${b} is ${product}.`;
   var isArgArray = Array.isArray(a);
   if(!isArgArray) {
@@ -67,11 +67,13 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
   var answer = [];
-  var sumAns = sum(a, b, c);
-  var productAns = multiply(a, b, c);
-  var msgSum = `${a} and ${b} and ${c} sum to ${sumAns[0]}.`;
-  var msgPro = `The product of ${a} and ${b} and ${c} is ${productAns[0]}.`;
-  answer.push(sumAns[0], productAns[0], msgSum, msgPro);
+  var sumAns1 = sum(a, b);
+  var sumAns2 = sum(sumAns1[0], c);
+  var productAns1 = multiply(a, b);
+  var productAns2 = multiply(productAns1[0], c);
+  var msgSum = `${a} and ${b} and ${c} sum to ${sumAns2[0]}.`;
+  var msgPro = `The product of ${a} and ${b} and ${c} is ${productAns2[0]}.`;
+  answer.push(sumAns2[0], productAns2[0], msgSum, msgPro);
   return(answer);
 }
 
@@ -98,9 +100,10 @@ var testArray = [2, 3, 4]; //eslint-disable-line
 function sumArray(sumArr) { //eslint-disable-line
   var answer = [];
   var q4Array = sumArr;
-  var theSum = sum(q4Array[0], q4Array[1], q4Array[2]);
-  var msg = `${q4Array[0]},${q4Array[1]},${q4Array[2]} was passed in as an array of numbers, and ${theSum[0]} is their sum.`;
-  answer.push(theSum[0], msg);
+  var theSum1 = sum(q4Array[0], q4Array[1]);
+  var theSum2 = sum(theSum1[0], q4Array[2]);
+  var msg = `${q4Array[0]},${q4Array[1]},${q4Array[2]} was passed in as an array of numbers, and ${theSum2[0]} is their sum.`;
+  answer.push(theSum2[0], msg);
   //console.log(answer);
   return(answer);
 }
@@ -125,9 +128,10 @@ Test this function by hand in the console to get it working, and when you think 
 function multiplyArray(multArr) { //eslint-disable-line
   var answer = [];
   var q5Array = multArr;
-  var theSum = multiply(q5Array[0], q5Array[1], q5Array[2]);
-  var msg = `The numbers ${q5Array[0]},${q5Array[1]},${q5Array[2]} have a product of ${theSum[0]}.`;
-  answer.push(theSum[0], msg);
+  var product1 = multiply(q5Array[0], q5Array[1]);
+  var product2 = multiply(product1[0],q5Array[2]);
+  var msg = `The numbers ${q5Array[0]},${q5Array[1]},${q5Array[2]} have a product of ${product2[0]}.`;
+  answer.push(product2[0], msg);
   //console.log(answer);
   return(answer);
 }
