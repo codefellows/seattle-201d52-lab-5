@@ -136,10 +136,25 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+  var product = 1;
+  var response = 'The numbers ';
+  //generate the response
+  // i is less than array length because array length is 5 but index is 0-4. if it were equal to array length, there isn't an index 5.
+  for(var i = 0; i < dynamicArray.length; i++){
+    product = multiply(product,dynamicArray[i])[0];
+    // this tells script to add "," until the last number in array
+    if (i !== dynamicArray.length - 1){
+      // response += is equivalent to response = response +
+      response += dynamicArray[i] + ',';
+    }
+    else {
+      response += dynamicArray[i];
+    }
+  }
+  response += ' have a product of ' + product + '.';
+  return [product, response];
 }
-
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
