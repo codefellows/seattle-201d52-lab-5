@@ -9,7 +9,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-  return [a + b, `The sum of ${a} and ${b} is ${a + b}.`];
+  var sum = [a + b, `The sum of ${a} and ${b} is ${a + b}.`];
+  return sum;
 }
 
 // Here is the test for sum(); uncomment it to run it
@@ -27,7 +28,8 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-  return [a * b, `The product of ${a} and ${b} is ${a * b}.`];
+  var product = [a * b, `The product of ${a} and ${b} is ${a * b}.`];
+  return product;
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -48,9 +50,14 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-  var sum = a + b + c;
-  var product = a * b * c;
-  return [sum, product, `${a} and ${b} and ${c} sum to ${sum}.`, `The product of ${a} and ${b} and ${c} is ${product}.`];
+
+  var sumNum = sum(a, b)[0];
+  sumNum = sum(sumNum, c)[0];
+
+  var productNum = multiply(a, b)[0];
+  productNum = multiply(productNum, c)[0];
+  
+  return [sumNum, productNum, `${a} and ${b} and ${c} sum to ${sumNum}.`, `The product of ${a} and ${b} and ${c} is ${productNum}.`];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
